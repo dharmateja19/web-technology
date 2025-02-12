@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO LIST</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        margin-top: 20px;
+        text-align: center;
+      }
+      .task-form {
+        align-items: center;
+        margin-top: 20px;
+      }
+      .task-input {
+        width: 330px;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #250404;
+        border-radius: 5px;
+      }
+      .task-button {
+        width: 350px;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #250404;
+        cursor: pointer;
+      }
+      .task-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .task-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      .task-list li.completed .task-text {
+        text-decoration: line-through;
+        color: #888;
+      }
+      .actions button {
+        margin-left: 5px;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+      }
+      .actions button.complete {
+        background-color: green;
+        color: white;
+        border-radius: 50%;
+      }
+      .actions button.delete {
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+      }
+      .actions button.edit {
+        background-color: blue;
+        color: white;
+        width: 40px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>TODO LIST</h1>
+      <form class="task-form">
+        <input class="task-input" type="text" placeholder="Add a new task" /><br />
+        <button class="task-button" type="submit">Add</button>
+      </form>
+      <ul class="task-list"></ul>
+    </div>
+    <script>
+      const tasklist = document.querySelector('.task-list');
+      const taskform = document.querySelector('.task-form');
+      const taskinput = document.querySelector('.task-input');
+
+      taskform.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const task = taskinput.value.trim();
+        if (task) {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <span class="task-text">${task}</span>
+            <div class="actions">
+              <button class="complete">✔</button>
+              <button class="edit">Edit</button>
+              <button class="delete">X</button>
+            </div>
+          `;
+          tasklist.appendChild(li);
+          taskinput.value = '';
+
+          li.querySelector('.delete').addEventListener('click', () => {
+            li.remove();
+          });
+
+          li.querySelector('.edit').addEventListener('click', () => {
+            const newTask = prompt('Edit task:', li.querySelector('.task-text').innerText);
+            if (newTask) {
+              li.querySelector('.task-text').innerText = newTask;
+            }
+          });
+
+          li.querySelector('.complete').addEventListener('click', () => {
+            li.classList.toggle('completed');
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

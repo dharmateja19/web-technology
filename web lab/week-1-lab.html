@@ -17,26 +17,50 @@
         <h6>Heading 6</h6>
 		<hr/>
 		<!-- lists -->
-		 program execution in cpp
-		<ol>
+		 program execution in javascript
+		<ol type="i">
             <li>write souce code</li>
             <li>save the code</li>
             <li>compile the code</li>
 			<li>execute the code</li>
         </ol>
 		<hr/>
-		shopping list
-		<ul type="circle">
-			<li>clothes</li>
-			<li>rice</li>
-			<li>fruits</li>
+		Laptop Accesories
+		<ul type="square">
+			<li>Mouse</li>
+			<li>Keyboard</li>
+			<li>Laptop Stand</li>
+			<li>USB drive</li>
+			<li>Laptop Sleeve</li>
 		</ul>
 		<hr/>
-		<!-- image tag -->
-		 <img src="full stack.png" alt="full stack guide" height="200px",width="300"/>
+		Backend Programming Languages
+		<dl>
+			<dt>Node.js</dt>
+			<dd>A JavaScript runtime built on Chrome's V8 engine, used for server-side development.</dd>
+			<dt>Python</dt>
+			<dd>A versatile language used in web development, data science, and AI, often with frameworks like Django and Flask.</dd>
+			<dt>Java</dt>
+			<dd>A popular object-oriented language widely used in enterprise applications and backend development with Spring Boot.</dd>
+			<dt>PHP</dt>
+			<dd>A server-side scripting language mainly used for web development, often with frameworks like Laravel.</dd>
+			<dt>Ruby</dt>
+			<dd>A dynamic language known for simplicity, commonly used with the Ruby on Rails framework for backend development.</dd>
+		</dl>
+		<hr/>
+		<!-- multimedia tags -->
+		 <img src="full stack.png" alt="full stack guide" height="300px",width="400px"/>
+		 <audio controls>
+			<source src="sacchitale.mp3" type="audio/mp3">
+			your browser doesnot support audio tag
+		 </audio>
+		 <video width="500px" height="300px" controls>
+			<source src="video.mp4" type="video/mp4">
+			your browser doesnot support video tag
+		 </video>
 		 <hr/>
 		 <!-- table tag -->
-		<table border="1" style="border-collapse: collapse;" cellpadding="10" cellspacing="10" align="center">
+		<table border="1" cellpadding="10" cellspacing="10" align="center">
 			<tr>
 				<th colspan="4">Student Subjects</th>
 			</tr>
@@ -92,52 +116,42 @@
 			</tr>
 		</table>
 		<hr/>
+		<!-- Form tag -->
 		<form>
 			<fieldset>
 				<legend>Personal Information</legend>
-				<label for="name">Name</label>
-				<input type="text" id="name" placeholder="Enter your name">
-				<br>
-				<label for="gender">Gender</label>
-				<input type="radio" id="gender" name="gender" value="male">Male
-				<input type="radio" id="gender" name="gender" value="female">Female
-				<br>
-				<label for="dob">Date of Birth</label>
-				<input type="date" id="dob" name="dob">
-				<br>
-				<label for="time">Time</label>
-				<input type="time" id="time" name="time">
-				<br>
-				<label for="address">Address</label>
-				<textarea id="address" name="address" placeholder="Enter your address " rows="2" cols="20"></textarea>
-				<br>
-				<label for="age">Age</label>
-				<input type="number" id="age" name="age">
-				<br>
-				<label for="sports liked">Sports liked</label>
-				<input type="checkbox" id="sports liked" name="sports liked" value="cricket">Cricket
-				<input type="checkbox" id="sports liked" name="sports liked" value="football">Football
-				<input type="checkbox" id="sports liked" name="sports liked" value="hockey">Hockey
-				<input type="checkbox" id="sports liked" name="sports liked" value="basket ball">Basket Ball
-				<br>
-				<label for="city">City</label>
-				<select id="city" name="city">
-					<option value="hyderabad">Hyderabad</option>
-					<option value="vijayawada">Vijayawada</option>
-					<option value="delhi">Delhi</option>
-					<option value="mumbai">Mumbai</option>
-					<option value="chennai">Chennai</option>
-				</select>
-				<br>
-				<label for="email">Email</label>
-				<input type="email" id="email" placeholder="Enter your email">
-				<br>
-				<label for="password">Password</label>
-				<input type="password" id="password" placeholder="Enter your password">
-				<br>
-				<label for="phone">Phone</label>
-				<input type="tel" id="phone" placeholder="Enter your phone number">
-				<br>
+				<label for="name">Name</label><br>
+				<input type="text" id="name" placeholder="Enter your name"><br/>
+				<label for="gender">Gender</label><br>
+				<input type="radio" id="gender" name="gender" value="male">Male<br>
+				<input type="radio" id="gender" name="gender" value="female">Female<br>
+				<label for="dob">Date of Birth</label><br>
+				<input type="date" id="dob" name="dob"><br>
+				<label for="time">Time</label><br>
+				<input type="time" id="time" name="time"><br>
+				<label for="age">Age</label><br>
+				<input type="number" id="age" name="age" placeholder="Enter your age"><br>
+				<label for="address">Address</label><br>
+				<textarea id="address" name="address" placeholder="Enter your address " rows="2" cols="20"></textarea><br>
+				<label for="sports liked">Sports liked</label><br>
+				<input type="checkbox" id="sports liked" name="sports liked" value="cricket">Cricket<br>
+				<input type="checkbox" id="sports liked" name="sports liked" value="football">Football<br>
+				<input type="checkbox" id="sports liked" name="sports liked" value="hockey">Hockey<br>
+				<input type="checkbox" id="sports liked" name="sports liked" value="basket ball">Basket Ball<br>
+				<label for="city">City</label><br>
+				<select id="city" name="city"><br>
+					<option value="hyderabad">Hyderabad</option><br>
+					<option value="vijayawada">Vijayawada</option><br>
+					<option value="delhi">Delhi</option><br>
+					<option value="mumbai">Mumbai</option><br>
+					<option value="chennai">Chennai</option><br>
+				</select><br>
+				<label for="email">Email</label><br>
+				<input type="email" id="email" placeholder="Enter your email"><br>
+				<label for="password">Password</label><br>
+				<input type="password" id="password" placeholder="Enter your password"><br>
+				<label for="phone">Phone</label><br>
+				<input type="tel" pattern="[0-9]{10}" id="phone" placeholder="Enter your phone number"><br>
 				<input type="submit" value="Submit">
 				<input type="reset" value="Reset">
 			</fieldset>

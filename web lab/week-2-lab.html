@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 lab</title>
+    <style>
+        h1{
+            color:red;
+            background-color: aquamarine;
+        }
+        *{
+            background-color:aliceblue
+        }
+        .samplep{
+            border-radius: 5px;
+            color:orange;
+            font-size: 30px;
+            background-color: green;
+            border-width: 5px;
+            text-align: center;
+            padding :10px;
+        }
+        #sampleid{
+            background-color: rgb(173, 23, 98);
+            font-size:24px;
+            font-weight: bold;
+            color:white;
+            text-align: right;
+        }
+        .fontstyle{
+            font-family:unset;
+            font-size:24px;
+            color:blue;
+            text-decoration:line-through
+        }
+        .scroll-text{
+            color:darkslateblue;
+            font-size: 18px;
+            border:solid black 2px;
+            border-radius: 8px;
+        }
+        .hoverme{
+            color:red;
+            background-color: green;
+            font-size: 30px;
+            border-radius: 12px;
+            transition: all 0.5s ease-in-out;
+        }
+        .hoverme:hover{
+            cursor:pointer;
+            font-size:50px;
+            transition:4s;
+            box-shadow: 5px 5px 10px gold
+        }
+        .clickme{
+            color:blue;
+            background-color: deeppink;
+            font-size: 25px;
+            border-radius: 12px;
+        }
+        .clickme:active{
+            cursor: pointer;
+            color:blueviolet;
+            background-color: goldenrod;
+        }
+        .animate{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            border:1px solid black;
+        }
+        @keyframes example {
+            from {background-color: blue;}
+            to {background-color: yellow;}
+        }
+        .animate2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            border:1px solid black;
+            margin:auto;
+            animation: myfirst 5s linear 2s infinite alternate;
+        }
+        @keyframes myfirst {
+            0%   {background-color:red; left:0px; top:0px;}
+            25%  {background-color:yellow; left:200px; top:0px;}
+            50%  {background-color:blue; left:200px; top:200px;}
+            75%  {background-color:green; left:0px; top:200px;}
+            100% {background-color:red; left:0px; top:0px;}
+        }
+    </style>
+    <link rel="stylesheet" href="twostyle.css">
+</head>
+<body>
+    <h1>This is a heading styled using the element selector</h1>
+    <p class="samplep">
+        This is a sample paragraph styled using class selector
+    </p><br/>
+    <p id="sampleid">
+        This is a sample paragraph which has applied internnal css using id selector
+    </p>
+    <p class="fontstyle">
+        This is a paragraph that has applied font styling
+    </p><br/>
+    <div class="sampleext">
+        This is a paragraph style with external css
+    </div><br/>
+    <marquee class="scroll-text"behavior="scroll" direction="left">
+        The following text will be scrolled from right to left continously
+    </marquee>
+    <button class="hoverme">
+        Hover on  me
+    </button><br/><br/>
+    <button class="clickme">
+        click on  me
+    </button><br/><br/>
+    <div class="animate"></div>
+    <div class="animate2"></div>
+</body>
+</html>
