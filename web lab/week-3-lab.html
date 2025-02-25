@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=devic"e-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(244, 244, 244);
+        color: rgb(51, 51, 51);
+        scroll-padding-top: 100px;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+      }
+      .header {
+        background: rgb(51, 51, 51);
+        color: white;
+        padding-top: 20px;
+        min-height: 70px;
+        border-bottom: rgb(119, 170, 255) 3px solid;
+        position: fixed;
+        width: 100%;
+      }
+      .header-title {
+        float: left;
+        margin: 0;
+        padding: 0;
+      }
+      .nav {
+        float: right;
+        margin-top: 10px;
+      }
+      .nav-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .nav-item {
+        display: inline;
+        margin-left: 20px;
+      }
+      .nav-link {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .info {
+        padding-top: 100px;
+      }
+      hr{
+        width:80%;
+      }
+      .sections {
+        padding: 20px 0;
+        margin-bottom: 20px;
+        scroll-margin-top: 100px;
+      }
+      .sections-title {
+        color: rgb(51, 51, 51);
+        margin-bottom: 20px;
+      }
+      .sections-text {
+        font-size: 18px;
+      }
+      .sections-list {
+        list-style-type: square;
+        padding-left: 20px;
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-label {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      .form-input,
+      .form-textarea {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid rgb(204, 204, 204);
+        border-radius: 5px;
+      }
+      .form-button {
+        padding: 10px;
+        background: rgb(51, 51, 51);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .form-button:hover {
+        background: rgb(119, 170, 255);
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="header-title">My Portfolio</h1>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#interests" class="nav-link">Interests</a></li>
+            <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="info">
+      <section id="about" class="sections">
+        <div class="container">
+          <h2 class="sections-title">About Me</h2>
+          <p class="sections-text">Hello! I'm Dharma Teja, a passionate web developer with a love for creating beautiful and functional websites.</p>
+        </div>
+      </section>
+      <hr />
+      <section id="interests" class="sections">
+        <div class="container">
+          <h2 class="sections-title">Interests</h2>
+          <p class="sections-text">I have a wide range of interests including web development, cloud computing, and cybersecurity. I love exploring new technologies and always strive to learn something new every day.</p>
+        </div>
+      </section>
+      <hr />
+      <section id="skills" class="sections">
+        <div class="container">
+          <h2 class="sections-title">Skills</h2>
+          <ul class="sections-list">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>C</li>
+            <li>C++</li>
+            <li>Python</li>
+          </ul>
+        </div>
+      </section>
+      <hr />
+      <section id="contact" class="sections">
+        <div class="container">
+          <h2 class="sections-title">Contact Me</h2>
+          <form class="form">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" name="name" required class="form-input" />
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" name="email" required class="form-input" />
+            <label for="message" class="form-label">Message:</label>
+            <textarea id="message" name="message" rows="5" required class="form-textarea"></textarea>
+            <button type="submit" class="form-button">Send</button>
+          </form>
+        </div>
+      </section>
+    </section>
+  </body>
+</html>

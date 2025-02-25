@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: white;
+    background: url('https://i.pinimg.com/originals/3d/46/4c/3d464c3d501304cb13f6cb1a6a6b82fc.gif') no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-bottom: 3px solid yellow;
+    animation: slide-in 1s ease-in-out;
+}
+
+.glow-text {
+    font-size: 50px;
+    text-shadow: 0 0 10px orange, 0 0 20px red, 0 0 30px crimson;
+}
+
+.animated-text {
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s;
+}
+
+.animated-text:hover {
+    transform: scale(1.05);
+    color: yellow;
+}
+
+.play-button {
+    display: inline-block;
+    background: linear-gradient(to right, #ff0000, #ff9900);
+    padding: 15px 30px;
+    font-size: 25px;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(255, 165, 0, 0.8);
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 10px 20px rgba(255, 165, 0, 1);
+}
+
+#download-options {
+    display: none;
+    margin: 20px auto;
+    width: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+th {
+    background: #ff9900;
+    color: black;
+}
+
+td a {
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    color: white;
+}
+
+.exit-button {
+    background: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.exit-button:hover {
+    background: darkred;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.footer-text {
+    font-size: 16px;
+    color: #ddd;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

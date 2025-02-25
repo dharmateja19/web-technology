@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Assignment-2</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="k.css">
+</head>
+<body>
+    
+    <header>
+        <h1 class="glow-text">Free Fire X Naruto 2</h1>
+    </header>
+
+    <main>
+        <p class="animated-text">Let's play free fire. Have a fun! Download Now &hearts;</p>
+        
+        <br><br>
+        <button class="play-button" onclick="toggleDownloadOptions()">Play Now</button>
+
+        <div id="download-options" class="hidden">
+            <table>
+                <tr>
+                    <th>Platform</th>
+                    <th>Download Link</th>
+                </tr>
+                <tr>
+                    <td>Apple Store</td>
+                    <td><a href="https://apps.apple.com/" target="_blank">Download</a></td>
+                </tr>
+                <tr>
+                    <td>Google Play Store</td>
+                    <td><a href="https://play.google.com/store" target="_blank">Download</a></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="exit-button" onclick="toggleDownloadOptions()">Exit</button></td>
+                </tr>
+            </table>
+        </div>
+
+    </main>
+
+    <footer>
+        <p class="footer-text">&copy; 2025 Free Fire Fan Page</p>
+    </footer>
+
+    <script>
+        function toggleDownloadOptions() {
+            var options = document.getElementById("download-options");
+            if (options.style.display === "block") {
+          options.style.display = "none";
+            } else {
+                options.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript Practice</title>
+    <style>
+        button{
+            width: auto;
+            margin: 0;
+            border-radius: 10px;
+            padding:5px;
+            border: 1px solid black;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        #adds,#subs,#mult,#divd{
+            width:60px;
+            font-size: 16px;
+        }
+        #prime-op{
+            overflow-wrap: break-word;
+            max-width:100%;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return false">
+        <!-- <button onclick="calcutesum()">Calculate</button> -->
+        
+        <label for="rstr">Enter string to reverse: </label>
+        <input type="text" name="rstr" id="rstr">
+        <p id="rstr-op"></p>
+
+        <label for="primes">Enter number of primes: </label>
+        <input type="number" name="primes" id="primes">
+        <button id="gen-pr" onclick="primegen(event)">Generate Prime</button>
+        <p id="prime-op"></p>
+
+        <button id="btn">Change Background-Color</button><br/><br>
+
+        <label for="age">Enter your age:</label>
+        <input type="number" name="age" id="age"><br><br>
+        <button id="btn-age">Get Age Group</button>
+        <p id="age-out"></p>
+
+        <label for="num1">Enter number 1</label>
+        <input type="number" name="num1" id="num1"><br><br>
+        <label for="num2">Enter number 2</label>
+        <input type="number" name="num2" id="num2"><br><br>
+        <button id="adds" onclick="add(event)">+</button>
+        <button id="subs" onclick="sub(event)">-</button>
+        <button id="mult" onclick="mul(event)">*</button>
+        <button id="divd" onclick="div(event)">/</button><br>
+        <p id="calc-op"></p>
+
+        <label for="subjects">Enter number of subjects: </label>
+        <input type="number" name="subjects" id="subjects"><br><br>
+        <label for="marks">Enter marks with spaces between them:</label>
+        <input type="text" name="marks" id="marks"><br><br>
+        <button id="getgrade" onclick="gradecal(event)">Get grade</button><br>
+        <p id="op-gr"></p>
+    </form>
+    <script>
+        let n=parseInt(prompt("enter n"))
+        document.writeln(`Number of elements = ${n}<br>`)
+        let arr=[]
+        for (let index = 0; index < n; index++) {
+            arr[index] = parseFloat(prompt(`enter number ${index+1}: `))
+        }
+        let sum=0
+        for (let i = 0; i < arr.length; i++) {
+            sum+= arr[i];  
+        }
+        document.writeln(`Array elements: ${arr}<br>`)
+        document.writeln(`Sum: ${sum.toFixed(2)}<br>`)
+
+        document.getElementById('btn').addEventListener("click",()=>{
+            let arr="#"
+            const nums="0123456789ABCDEF"
+            for(let i=0;i<6;i++){
+                arr+=nums[Math.floor(Math.random()*nums.length)]
+            }
+            document.body.style.backgroundColor=arr;
+        })
+        
+        document.getElementById('rstr').addEventListener('input',()=>{
+            const str=document.getElementById('rstr').value.trim()
+            let rstr= str.split("").reverse().join("");
+            document.getElementById('rstr-op').innerHTML=`Reversed string: ${rstr}<br>`
+        })
+        
+        function primegen(event) {
+            event.preventDefault()
+            const np=parseInt(document.getElementById('primes').value)
+            let count=0
+            const array=[]
+            const isprime = (i)=>{
+                if(i==2 || i==3) return true;
+                for(let j=2;j<=i/2;j++){
+                    if(i%j==0) return false
+                }
+                return true
+            }
+            for (let i = 2;; i++) {
+                if(isprime(i)){
+                    array.push(i)
+                    count++;
+                    if(count==np){
+                        break;
+                    }
+                }
+            }
+            document.getElementById('prime-op').innerHTML=(`The first ${np} prime numbers are ${array}<br>`)
+        }
+        
+
+        document.getElementById('btn-age').addEventListener("click", (event) => {
+            event.preventDefault();
+            const age = document.getElementById('age').value; 
+            const ageout=document.getElementById('age-out')
+            let agegroup=""
+            if (age>=45){
+                agegroup="Senior citizen"
+            }
+            else if(age>=20){
+                agegroup="Young"
+            }
+            else if(age>=13){
+                agegroup="Teenage"
+            }
+            else if(age>0){
+                agegroup="Child"
+            }
+            else{
+                agegroup="Invalid age"
+            }
+            ageout.innerHTML= `Entered Age: ${age}<br> Age Group: ${agegroup}`;
+        });
+
+        function add(event) {
+            event.preventDefault()
+            let n1 = parseFloat(document.getElementById('num1').value);
+            let n2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById('calc-op').innerHTML = `The Sum is ${n1 + n2}`;
+        }
+        function sub(event) {
+            event.preventDefault()
+            let n1 = parseFloat(document.getElementById('num1').value);
+            let n2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById('calc-op').innerHTML = `The Difference is ${n1 - n2}`;
+        }
+        function mul(event) {
+            event.preventDefault()
+            let n1 = parseFloat(document.getElementById('num1').value);
+            let n2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById('calc-op').innerHTML = `The Product is ${n1 * n2}`;
+        }
+        function div(event) {
+            event.preventDefault()
+            let n1 = parseFloat(document.getElementById('num1').value);
+            let n2 = parseFloat(document.getElementById('num2').value);
+            if(n2 === 0){
+                document.getElementById('calc-op').innerHTML = `The Division is Invalid`;
+            }
+            else{
+                let res = n1/n2
+                document.getElementById('calc-op').innerHTML = `The Division is ${res.toFixed(2)}`;
+            }
+        }
+
+        function gradecal(event) {
+            event.preventDefault();
+            let n = parseInt(document.getElementById('subjects').value);
+            let arr = document.getElementById('marks').value.trim().split(" ").map(Number);
+            if (arr.length !== n) {
+                document.getElementById('op-gr').innerHTML = `Error: Enter exactly ${n} marks.`;
+                return;
+            }
+            if (arr.some(mark => mark < 0 || mark > 100 || isNaN(mark))) {
+                document.getElementById('op-gr').innerHTML = `Error: Marks should be between 0 and 100.`;
+                return;
+            }
+            else{
+                let sum=0
+                arr.forEach(element => {
+                    sum+=element
+                });
+                let g;
+                let p=(sum/n);
+                if(p>=90){
+                    g="O"
+                }
+                else if(p>=80){
+                    g="A+"
+                }
+                else if(p>=70){
+                    g="A"
+                }
+                else if(p>=60){
+                    g="B+"
+                }
+                else if(p>=50){
+                    g="B"
+                }
+                else if(p>=35){
+                    g="C"
+                }
+                else{
+                    g="F"
+                }
+                document.getElementById('op-gr').innerHTML = `Total Marks: ${sum}/${n*100}<br>Percentage: ${p.toFixed(2)}% <br>Grade: ${g}`;
+            }
+        }
+    </script>
+</body>
+</html>

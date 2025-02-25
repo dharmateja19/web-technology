@@ -5,32 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meet me</title>
     <style>
+        body{
+            margin:0;
+            background-color: rgb(201, 209, 209);
+        }
         nav{
             display:grid;
             grid-template-columns: 1fr 1fr;
-            background-color: azure;
+            background-color: rgb(23, 107, 107);
+            padding: 10px;
         }
         .options{
             display: grid;
             grid-template-columns: repeat(4,150px);
+            margin-left: 300px;
             justify-content: space-between;
         }
         .options > button{
-            background-color: burlywood;
-            color:aqua;
-            border-radius: 12px;
+            color:rgb(161, 190, 17);
+            font-size: 22px;
+            align-items: center;
+            border: none;
+            background-color: rgb(23, 107, 107);
         }
+        .options > button:hover{
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
     </style>
 </head>
 <body>
     <nav>
-        <h1>Hi there, this is Dharma Teja</h1>
+        <h1>My Portfolio</h1>
         <div class="options">
-            <button>About</button>
+            <button><a href="#about">About</a></button>
             <button>Interests</button>
             <button>Skills</button>
             <button>Contact me</button>
         </div>
     </nav>
+    <div id="about">
+        <h2>About</h2>
+        <p>
+            Hi there, This is Dharma teja<br>
+
+        </p>
+    </div>
 </body>
 </html>
