@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <form id="registration-form">
+      <fieldset>
+        <legend>Registration Form</legend>
+        
+        <label for="name"><b>Enter Your Name:</b></label>
+        <input type="text" name="name" id="name" required /><br />
+        <p id="name-check"></p>
+
+        <label for="age"><b>Enter your age:</b></label>
+        <input type="number" name="age" id="age" required /><br />
+        <p id="age-check"></p>
+
+        <label for="email-id"><b>Enter Your Email-id:</b></label>
+        <input type="email" name="email-id" id="email-id" required /><br />
+        <p id="email-check"></p>
+
+        <label for="pincode"><b>Enter Your Pincode:</b></label>
+        <input type="number" name="pincode" id="pincode" required /><br />
+        <p id="pin-check"></p>
+
+        <label for="password"><b>Enter Your Password:</b></label>
+        <input type="password" name="password" id="password" required /><br />
+        <p id="password-check"></p>
+
+        <button type="submit" id="submit-btn">Submit</button>
+      </fieldset>
+    </form>
+
+    <script>
+      document.getElementById("name").addEventListener("input", () => {
+        const str = document.getElementById("name").value.trim();
+        let nc = document.getElementById("name-check");
+        const regex = /^[A-Za-z\s]+$/;
+        if (str.length >= 2 && regex.test(str)) {
+          nc.innerHTML = "Name is valid";
+          nc.style.color = "green";
+        } else {
+          nc.innerHTML = "Invalid Name. Must contain at least 2 characters (only alphabets and spaces).";
+          nc.style.color = "red";
+        }
+      });
+
+      document.getElementById("age").addEventListener("input", () => {
+        const age = document.getElementById("age").value;
+        let ac = document.getElementById("age-check");
+        if (age >= 18 && age <= 60) {
+          ac.innerHTML = "Age is valid";
+          ac.style.color = "green";
+        } else {
+          ac.innerHTML = "Invalid age. Must be between 18 and 60.";
+          ac.style.color = "red";
+        }
+      });
+
+      document.getElementById("email-id").addEventListener("input", () => {
+        const email = document.getElementById("email-id").value.trim();
+        let ec = document.getElementById("email-check");
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (emailPattern.test(email)) {
+          ec.innerHTML = "Email is valid";
+          ec.style.color = "green";
+        } else {
+          ec.innerHTML = "Invalid email format";
+          ec.style.color = "red";
+        }
+      });
+
+      document.getElementById("pincode").addEventListener("input", () => {
+        const pin = document.getElementById("pincode").value.trim();
+        let pc = document.getElementById("pin-check");
+        if (/^\d{6}$/.test(pin)) {
+          pc.innerHTML = "Pincode is valid";
+          pc.style.color = "green";
+        } else {
+          pc.innerHTML = "Pincode must be exactly 6 digits";
+          pc.style.color = "red";
+        }
+      });
+
+      document.getElementById("password").addEventListener("input", () => {
+        const password = document.getElementById("password").value;
+        let pwc = document.getElementById("password-check");
+        if (password.length >= 8 &&
+            /[A-Z]/.test(password) &&
+            /[a-z]/.test(password) &&
+            /[0-9]/.test(password) &&
+            /[!@#$%^&*]/.test(password)) {
+          pwc.innerHTML = "Password is strong!";
+          pwc.style.color = "green";
+        } else {
+          pwc.innerHTML = "Password must be at least 8 characters, contain an uppercase letter, a lowercase letter, a number, and a special character (!@#$%^&*).";
+          pwc.style.color = "red";
+        }
+      });
+
+      document.getElementById("registration-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        let fields = ["name", "age", "email-id", "pincode", "password"];
+        let hasError = false;
+
+        for (let field of fields) {
+          let input = document.getElementById(field).value.trim();
+          if (!input) {
+            alert("All fields are required.");
+            return;
+          }
+        }
+
+        let errors = document.querySelectorAll("p");
+        hasError = Array.from(errors).some(error => error.style.color === "red");
+
+        if (hasError) {
+          alert("Please correct the errors before submitting.");
+        } else {
+          alert("Registration Successful!");
+          document.getElementById("registration-form").reset();
+          let messages = document.querySelectorAll("p");
+          messages.forEach(msg => msg.innerHTML = ""); 
+        }
+      });
+    </script>
+  </body>
+</html>

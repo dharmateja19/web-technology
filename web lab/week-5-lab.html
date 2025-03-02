@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <form onsubmit="return false">
+      <fieldset>
+        <legend>Registration Form</legend>
+        <label for="name"><b>Enter Your Name:</b></label>
+        <input type="text" name="name" id="name" /><br />
+        <p id="name-check"></p>
+        <label for="age"><b>Enter your age:</b></label>
+        <input type="number" name="age" id="age" /><br />
+        <p id="age-check"></p>
+        <label for="email-id"><b>Enter Your Email-id:</b></label>
+        <input type="email" name="email-id" id="email-id" /><br />
+        <p id="email-check"></p>
+        <label for="pincode"><b>Enter Your Pincode:</b></label>
+        <input type="number" name="pincode" id="pincode" /><br />
+        <p id="pin-check"></p>
+        <label for="password"><b>Enter Your password:</b></label>
+        <input type="password" name="password" id="password" /><br />
+        <p id="password-check"></p>
+      </fieldset>
+    </form>
+    <script>
+      document.getElementById("name").addEventListener("input", () => {
+        const str = document.getElementById("name").value;
+        let nc = document.getElementById("name-check");
+        const regex = /^[A-Za-z\s]+$/;
+        if (str) {
+          for (let i of str) {
+            if (regex.test(i) && str.length>=2) {
+              nc.innerHTML = "Name is valid";
+              nc.style.color = "green";
+            } else {
+              nc.innerHTML = "Invalid Name. Name must contain 2 characters and must be alphabet or space";
+              nc.style.color = "red";
+            }
+          }
+        } else {
+          nc.innerHTML = "";
+        }
+      });
+
+      document.getElementById("age").addEventListener("input", () => {
+        const age = document.getElementById("age").value;
+        let ac = document.getElementById("age-check");
+        if (age) {
+          if (age < 18 || age > 60) {
+            ac.innerHTML = "Invalid age. Age should be in range of 18 and 60.";
+            ac.style.color = "red";
+          } else {
+            ac.innerHTML = "Age is valid";
+            ac.style.color = "green";
+          }
+        } else {
+          ac.innerHTML = "";
+        }
+      });
+      document.getElementById("email-id").addEventListener("input", () => {
+        const email = document.getElementById("email-id").value;
+        let ec = document.getElementById("email-check");
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (email) {
+          if (emailPattern.test(email)) {
+            ec.innerHTML = "email is valid";
+            ec.style.color = "green";
+          } else {
+            ec.innerHTML = "email is invalid";
+            ec.style.color = "red";
+          }
+        } else {
+          ec.innerHTML = "";
+        }
+      });
+      document.getElementById("pincode").addEventListener("input", () => {
+        const pin = document.getElementById("pincode").value;
+        let pc = document.getElementById("pin-check");
+        if (pin) {
+          if (pin.toString().length == 6) {
+            pc.innerHTML = "Pincode is valid";
+            pc.style.color = "green";
+          } else {
+            pc.innerHTML = "Pincode must contain 6 digits";
+            pc.style.color = "red";
+          }
+        } else {
+          pc.innerHTML = "";
+        }
+      });
+      document.getElementById("password").addEventListener("input", () => {
+        const password = document.getElementById("password").value;
+        let pwc = document.getElementById("password-check");
+        pwc.innerHTML = password;
+        if (password) {
+          if (password.length !== 8) {
+            pwc.innerHTML = "Password must be exactly 8 characters long";
+            pwc.style.color = "red";
+          } else if (!/[A-Z]/.test(password)) {
+            pwc.innerHTML =
+              "Password must contain at least one uppercase letter";
+            pwc.style.color = "red";
+          } else if (!/[a-z]/.test(password)) {
+            pwc.innerHTML =
+              "Password must contain at least one lowercase letter";
+            pwc.style.color = "red";
+          } else if (!/[0-9]/.test(password)) {
+            pwc.innerHTML = "Password must contain at least one number";
+            pwc.style.color = "red";
+          } else if (!/[!@#$%^&*]/.test(password)) {
+            pwc.innerHTML =
+              "Password must contain at least one special character (!@#$%^&*)";
+            pwc.style.color = "red";
+          } else {
+            pwc.innerHTML = "Password is strong!";
+            pwc.style.color = "green";
+          }
+        } else {
+          pwc.innerHTML = "";
+        }
+      });
+    </script>
+  </body>
+</html>
